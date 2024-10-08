@@ -5,10 +5,13 @@ from models import db, Hero, Power, HeroPower
 if __name__ == '__main__':
     with app.app_context():
         print("Clearing db...")
-        Power.query.delete()
-        Hero.query.delete()
-        HeroPower.query.delete()
-
+        # Power.query.delete()
+        # Hero.query.delete()
+        # HeroPower.query.delete()
+        def drop_table():
+            db.drop_all()
+        def create_table():
+            db.create_all()
         print("Seeding powers...")
         powers = [
             Power(name="super strength", description="Gives the wielder super-human strength"),
