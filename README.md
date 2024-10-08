@@ -24,6 +24,7 @@ pressing the `Import` button.
 
 ![import postman](https://curriculum-content.s3.amazonaws.com/6130/phase-4-code-challenge-instructions/import_collection.png)
 
+
 Select `Upload Files`, navigate to this repo folder, and select
 `challenge-2-superheroes.postman_collection.json` as the file to import.
 

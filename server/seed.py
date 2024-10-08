@@ -1,5 +1,4 @@
 from random import choice as rc
-
 from app import app
 from models import db, Hero, Power, HeroPower
 
@@ -12,10 +11,10 @@ if __name__ == '__main__':
 
         print("Seeding powers...")
         powers = [
-            Power(name="super strength", description="gives the wielder super-human strengths"),
-            Power(name="flight", description="gives the wielder the ability to fly through the skies at supersonic speed"),
-            Power(name="super human senses", description="allows the wielder to use her senses at a super-human level"),
-            Power(name="elasticity", description="can stretch the human body to extreme lengths"),
+            Power(name="super strength", description="Gives the wielder super-human strength"),
+            Power(name="flight", description="Gives the wielder the ability to fly through the skies at supersonic speed"),
+            Power(name="super human senses", description="Allows the wielder to use her senses at a super-human level"),
+            Power(name="elasticity", description="Can stretch the human body to extreme lengths"),
         ]
 
         db.session.add_all(powers)
@@ -37,13 +36,17 @@ if __name__ == '__main__':
         db.session.add_all(heroes)
 
         print("Adding powers to heroes...")
-        strengths = ["Strong", "Weak", "Average"]
+        strengths = ["strong", "weak", "average"]  
         hero_powers = []
+        
         for hero in heroes:
             power = rc(powers)
+            strength = rc(strengths) 
+            print(f"Assigning {strength} strength to {hero.name}")  
             hero_powers.append(
-                HeroPower(hero=hero, power=power, strength=rc(strengths))
+                HeroPower(hero=hero, power=power, strength=strength)
             )
+        
         db.session.add_all(hero_powers)
         db.session.commit()
 
